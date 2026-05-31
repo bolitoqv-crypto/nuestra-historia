@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nuestra Historia - Anali &#10084;</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="heartFireworks" aria-hidden="true"></canvas>
+<div class="love-sky" aria-hidden="true"></div>
+<div class="petal-field" aria-hidden="true"></div>
+<div id="loader">
+  <div class="loader-heart">&#10084;</div>
+  <h1>Nuestra Historia</h1>
+  <p>Preparando una sorpresa para Anali...</p>
+</div>
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <img src="img/portada.jpg" class="hero-img" alt="Foto de portada de Anali">
+  <p class="eyebrow">Desde el 2 de enero de 2026</p>
+  <h1>Anali &#10084;</h1>
+  <p class="hero-copy">Cada latido de esta pagina guarda un pedacito de lo que eres para mi.</p>
+  <button class="primary-btn" onclick="startExperience()">Comenzar</button>
+  <div class="scroll-cue" aria-hidden="true">&#10084;</div>
+</header>
+<audio id="music" preload="metadata">
+  <source src="music/cancion.mp3">
+</audio>
+<section class="spotify reveal">
+  <div class="iphone-player" aria-label="Reproductor de Enamorado Tuyo">
+    <div class="phone-speaker" aria-hidden="true"></div>
+    <img src="img/spotify-cover.jpg" class="player-cover" alt="Portada de Enamorado Tuyo">
+    <div class="player-meta"><span>iPhone</span><h2>ENAMORADO TUYO</h2><p>El Cuarteto de Nos</p></div>
+    <div class="player-time">
+      <span id="currentTime">0:00</span>
+      <input id="songProgress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progreso de la cancion">
+      <span id="remainingTime">-0:00</span>
+    </div>
+    <div class="player-controls">
+      <button id="rewindBtn" class="control-btn skip-back" type="button" aria-label="Retroceder 10 segundos"></button>
+      <button id="playPauseBtn" class="control-btn play-pause is-playing" type="button" aria-label="Pausar cancion"><span></span><span></span></button>
+      <button id="forwardBtn" class="control-btn skip-forward" type="button" aria-label="Avanzar 10 segundos"></button>
+      <button class="control-btn airplay" type="button" aria-label="AirPlay decorativo"></button>
+    </div>
+    <div class="volume-row">
+      <span class="volume-icon low" aria-hidden="true"></span>
+      <input id="volumeControl" type="range" min="0" max="1" value="0.85" step="0.01" aria-label="Volumen">
+      <span class="volume-icon high" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+<section class="counter reveal"><h2>&#9203; Tiempo juntos</h2><div id="contador"></div></section>
+<section id="timeline" class="reveal history-section">
+  <h2>&#128214; Nuestra Historia</h2>
+  <div class="history-wrap">
+    <div class="history-carousel" aria-label="Recuerdos de nuestra historia">
+      <article class="history-slide"><img src="img/foto1.jpg" alt="Primer encuentro"><h3>Primer encuentro</h3></article>
+      <article class="history-slide"><img src="img/foto2.jpg" alt="Primeras conversaciones"><h3>Primeras conversaciones</h3></article>
+      <article class="history-slide"><img src="img/foto3.jpg" alt="Primeras sonrisas"><h3>Primeras sonrisas</h3></article>
+      <article class="history-slide"><img src="img/foto4.jpg" alt="Momentos especiales"><h3>Momentos especiales</h3></article>
+    </div>
+    <div class="history-dots" aria-hidden="true"></div>
+  </div>
+</section>
+<section class="reveal">
+  <h2>&#128444;&#65039; Galeria</h2>
+  <div class="gallery">
+    <img src="img/foto5.jpg" alt="Recuerdo 1"><img src="img/foto6.jpg" alt="Recuerdo 2"><img src="img/foto7.jpg" alt="Recuerdo 3">
+    <img src="img/foto8.jpg" alt="Recuerdo 4"><img src="img/foto9.jpg" alt="Recuerdo 5"><img src="img/foto10.jpg" alt="Recuerdo 6">
+  </div>
+</section>
+<section class="letter reveal">
+  <h2>&#128140; Carta para Anali</h2>
+  <div class="letter-stage">
+    <button class="envelope-card" type="button" aria-label="Abrir carta para Anali">
+      <span class="envelope-shadow" aria-hidden="true"></span><span class="envelope-body" aria-hidden="true"></span>
+      <span class="envelope-flap top" aria-hidden="true"></span><span class="envelope-flap left" aria-hidden="true"></span><span class="envelope-flap right" aria-hidden="true"></span>
+      <span class="heart-seal" aria-hidden="true">&#10084;&#65039;</span><span class="tap-note">Toca la carta</span>
+    </button>
+    <article class="letter-paper" aria-live="polite">
+      <button class="letter-close" type="button" aria-label="Cerrar carta">&times;</button>
+      <div class="paper-content">
+        <h3>&#128140; Para Anali &#10084;&#65039;</h3>
+        <p>Anali,</p>
+        <p>Quiero que sepas que te amo. No importa donde estemos, no importa la distancia, el tiempo o las circunstancias; te amo con todo mi ser y con todo mi corazon.</p>
+        <p>Eres mi lugar mas lindo, mi lugar seguro y el lugar donde puedo ser yo mismo sin miedo. Contigo aprendi que el amor no siempre se encuentra en los grandes momentos, sino tambien en los pequenos detalles: una conversacion, una sonrisa, una mirada, una llamada inesperada o simplemente saber que estas ahi.</p>
+        <p>Te amo incondicionalmente. Eres una personita maravillosa, con un corazon enorme, capaz de iluminar mis dias incluso cuando todo parece dificil. Gracias por cada momento compartido, por cada recuerdo, por cada risa y por cada instante en el que me has permitido formar parte de tu vida.</p>
+        <p>No se cuanto durara esta historia, porque nadie puede conocer el futuro, pero si se algo: deseo con todo mi corazon que dure mucho tiempo. Quiero seguir construyendo recuerdos contigo, seguir descubriendo nuevas razones para sonreir y seguir compartiendo momentos que algun dia recordaremos con carino.</p>
+        <p>Quiero permanecer en tu vida, en tu mente y en tu corazon, asi como tu permaneces en los mios. Porque te has convertido en alguien muy especial para mi, alguien que ocupa un lugar que nadie mas podria ocupar.</p>
+        <p>Cuando pienso en felicidad, pienso en los momentos contigo. Cuando pienso en tranquilidad, pienso en tu compania. Cuando pienso en el futuro, inevitablemente te imagino formando parte de el.</p>
+        <p>Eres mi lugar seguro. Eres mi lugar feliz. Eres una de las mejores cosas que me han pasado.</p>
+        <p>Y si algun dia la vida me diera la oportunidad de empezar de nuevo, volveria a elegir conocerte. Volveria a elegir cada conversacion, cada sonrisa, cada recuerdo y cada momento que hemos compartido.</p>
+        <p>Gracias por existir, gracias por llegar a mi vida y gracias por ser exactamente como eres.</p>
+        <p>Nunca olvides esto:</p><p>Te amo con toda mi alma, con todo mi corazon y con cada parte de mi ser.</p>
+        <p>Te amo hoy, manana y todos los dias que esten por venir. &#10084;&#65039;</p>
+        <p><strong>Con amor, para siempre. &#128150;</strong></p>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="video-section reveal"><h2>&#127909; Video Especial</h2><video controls playsinline><source src="video/video1.mp4"></video></section>
+<section class="final reveal"><h1>Te volveria a elegir una y mil veces &#10084;</h1><button class="primary-btn" onclick="hearts()">Descubrelo</button><div id="finalmsg">Gracias por formar parte de mi historia, Anali &#10084;</div></section>
+<section class="qr-section reveal"><h2>&#128241; Codigo QR</h2><p>Cuando publiques en GitHub Pages reemplaza TU_ENLACE.</p><img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=TU_ENLACE" alt="QR"></section>
+<script src="script.js"></script>
+</body>
+</html>
