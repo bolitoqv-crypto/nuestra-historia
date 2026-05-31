@@ -98,7 +98,7 @@ function openingFireworks(){
 function startExperience(){
   const music = document.getElementById("music");
   music.play().catch(()=>{});
-  document.getElementById("timeline").scrollIntoView({behavior:"smooth"});
+  document.querySelector(".spotify").scrollIntoView({behavior:"smooth", block:"center"});
   launchHeartFirework(window.innerWidth*.5, window.innerHeight*.36, Math.min(9, window.innerWidth/48));
   animateFireworks();
 }
@@ -250,11 +250,58 @@ function initDigitalLetter(){
   close?.addEventListener("click", closeLetter);
 }
 
+function initGalleryLightbox(){
+  const galleryImages = [...document.querySelectorAll(".gallery img")];
+  if(!galleryImages.length) return;
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "gallery-lightbox";
+  lightbox.innerHTML = `
+    <button class="lightbox-close" type="button" aria-label="Cerrar foto">&times;</button>
+    <img src="" alt="Foto ampliada">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector("img");
+  const close = lightbox.querySelector(".lightbox-close");
+
+  function openImage(image){
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || "Foto ampliada";
+    lightbox.classList.add("open");
+    document.body.classList.add("lightbox-open");
+  }
+
+  function closeImage(){
+    lightbox.classList.remove("open");
+    document.body.classList.remove("lightbox-open");
+  }
+
+  galleryImages.forEach(image => {
+    image.tabIndex = 0;
+    image.addEventListener("click", () => openImage(image));
+    image.addEventListener("keydown", event => {
+      if(event.key === "Enter" || event.key === " "){
+        event.preventDefault();
+        openImage(image);
+      }
+    });
+  });
+  close.addEventListener("click", closeImage);
+  lightbox.addEventListener("click", event => {
+    if(event.target === lightbox) closeImage();
+  });
+  document.addEventListener("keydown", event => {
+    if(event.key === "Escape") closeImage();
+  });
+}
+
 createFloatingDecor();
 revealOnScroll();
 initHistoryCarousel();
 initMusicPlayer();
 initDigitalLetter();
+initGalleryLightbox();
 window.addEventListener("load", () => {
   setTimeout(() => loader.classList.add("hide"), 1700);
   setTimeout(openingFireworks, 1900);
